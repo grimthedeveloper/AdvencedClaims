@@ -1,0 +1,22 @@
+playerSettings:
+  player_Name: GrimTheDeveloper
+  claimed_Chunks:
+    - []
+    - []
+    - []
+    - []
+    - []
+  main_Chunk: []
+  main_Block: []
+  counter: 594994
+  trusted_Players:
+    - Ahmet
+    - Mehmet
+    - Sabri
+  registered_Players:
+    ahmet:
+      - pvp: false
+      - build: false
+      - takeItems: false
+      - editEntities: false
+      - useBlocks: true
