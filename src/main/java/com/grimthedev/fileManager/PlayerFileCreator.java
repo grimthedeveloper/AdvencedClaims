@@ -80,16 +80,17 @@ public class PlayerFileCreator {
 
     }
 
-    public void addChunks(Player player, Chunk chunk){
+    public void addChunkToPlayer(Player player, Chunk chunk){
+
+
         File file = new File(plugin.getDataFolder() + File.separator+ "Players", player.getUniqueId().toString()+".yml");
         FileConfiguration fileConfiguration = YamlConfiguration.loadConfiguration(file);
-        List<String> existedChunks = (List<String>) fileConfiguration.getList("playerSettings.claimed_Chunks");
 
-        List<String> newChunk = new ArrayList<String>();
-        newChunk.add(chunk.toString());
-        existedChunks.addAll(newChunk);
+        ArrayList<String> list = (ArrayList<String>) fileConfiguration.getStringList("playerSettings.claimed_Chunks");
 
-        fileConfiguration.set("playerSettings.counter", existedChunks);
+        list.add(chunk.toString());
+        fileConfiguration.set("playerSettings.claimed_Chunks",list);
+
 
 
         try {
@@ -99,11 +100,19 @@ public class PlayerFileCreator {
         }
     }
 
+    public void addChunkToGlobal(Player player, Chunk chunk){
+
+    }
+
     public List<String> getChunks(Player player){
         File file = new File(plugin.getDataFolder() + File.separator+ "Players", player.getUniqueId().toString()+".yml");
         FileConfiguration fileConfiguration = YamlConfiguration.loadConfiguration(file);
 
         return (List<String>) fileConfiguration.getList("playerSettings.claimed_Chunks");
+    }
+
+    public boolean isClaimed(Chunk chunk){
+        return false;
     }
 
 

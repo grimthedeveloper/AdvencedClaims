@@ -4,5 +4,3 @@ author: GrimTheDeveloper
 main: com.grimthedev.main.Main
 commands:
   add:
-softdepend:
-  - [WorldBorderAPI]

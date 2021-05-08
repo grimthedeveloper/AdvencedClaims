@@ -1,5 +1,6 @@
 package com.grimthedev.examples;
 
+import com.grimthedev.fileManager.GlobalChunkManager;
 import com.grimthedev.fileManager.PlayerFileCreator;
 import com.grimthedev.main.Main;
 import org.bukkit.command.Command;
@@ -21,9 +22,10 @@ public class addEXAMPLE implements CommandExecutor {
 
         if (sender instanceof Player){
             PlayerFileCreator fileCreator = new PlayerFileCreator(plugin);
+            GlobalChunkManager globalChunkManager = new GlobalChunkManager(plugin);
             Player player = (Player) sender;
-            fileCreator.addChunks(player,player.getLocation().getChunk());
-
+            fileCreator.addChunkToPlayer(player,player.getLocation().getChunk());
+            GlobalChunkManager.addGlobalChunk(player,player.getLocation().getChunk());
             /*for (String chunk : fileCreator.getChunks(player)){
                 player.sendMessage(chunk.toString());
             }*/
